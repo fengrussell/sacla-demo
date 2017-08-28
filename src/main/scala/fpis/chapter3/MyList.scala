@@ -69,6 +69,21 @@ object List {
       }
     }
   }
+
+  def drop[A](l: List[A], n: Int): List[A] = {
+    l match {
+      case Nil => Nil
+      case Cons(h, t) => if (n == 1) t else drop(t, n-1)
+    }
+  }
+
+  def dropWhile[A](l: List[A], f: A => Boolean): List[A] = {
+    l match {
+      case Nil => Nil
+      case Cons(h, t) if f(h) => dropWhile(t, f)
+      case _ => l
+    }
+  }
 }
 
 object MyList {
@@ -80,5 +95,9 @@ object MyList {
     List.print(t)
     val s = List.sethead(l, 6)
     List.print(s)
+    val d = List.drop(l, 6)
+    List.print(d)
+    val w = List.dropWhile(s, (n: Int)=>n > 3)
+    List.print(w)
   }
 }
