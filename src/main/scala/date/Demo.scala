@@ -25,6 +25,7 @@ object Demo {
 //        new TimeFormat("yyyyMMdd").parse(date).inMilliseconds
 //        val currentDay  = DateTime.parse(date)
 
+        // 字符串转日期，用LocalDate，这个可以直接计算，减去多少天、加多少天
         val dateFormater = DateTimeFormatter.ofPattern("yyyyMMdd")
         val currentDay  = LocalDate.parse("20171021", dateFormater)
         val yesterday = currentDay.minusDays(1).format(dateFormater)
