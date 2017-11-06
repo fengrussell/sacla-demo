@@ -45,7 +45,7 @@ class SingleClass5(para_i: Int) {
 
 object SingleClass {
     def main(args: Array[String]): Unit = {
-        val sc = new SingleClass2(11)
+        val sc = new SingleClass2(10)
         println(sc.para_i)
     }
 }
