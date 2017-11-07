@@ -7,7 +7,7 @@ package de
 //}
 
 class SingleClass1(para_i: Int) {
-    var var_i: Int = 1
+    var var_i: Int = 1 // 不用声明private，默认就是private。scala没有public修饰符
     val val_i: Int = 2
 }
 
