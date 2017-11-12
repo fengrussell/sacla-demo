@@ -41,11 +41,22 @@ class SingleClass5(para_i: Int) {
     def test: Unit = {
         println("SingleClass5.test")
     }
+
+    // 反编译后这个i没有val或var的修饰，但是这个i也是不可改变的
+    def add(i: Int): Int = {
+        i
+    }
+
+    def addClass(cls: SingleClass4): Unit = {
+      cls.var_i = 10
+//      cls = new SingleClass4(10) // 同add方法，不能再赋值，编译不过，提示：reassignment to val
+    }
 }
 
 object SingleClass {
     def main(args: Array[String]): Unit = {
         val sc = new SingleClass2(10)
         println(sc.para_i)
+        val sc4 = new SingleClass4(3, 4)
     }
 }
