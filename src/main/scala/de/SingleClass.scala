@@ -16,7 +16,7 @@ class SingleClass2(var para_i: Int) { // var para_i，等同于在类里定义�
     val val_i: Int = 2
 }
 
-class SingleClass3(val para_i: Int) {
+class SingleClass3(val para_i: Int) { // 和SingleClass2类似
     var var_i: Int = 1
     val val_i: Int = 2
 }
@@ -34,6 +34,13 @@ class SingleClass4(para_i: Int) {
 
 class SingleClass5(para_i: Int) {
     // 这些内容都在构造函数调用
+    /* 反编译后的代码
+      public SingleClass5(int para_i)
+      {
+        Predef..MODULE$.println("SingleClass5");
+        test();
+      }
+     */
     println("SingleClass5")
     test
     // ------------------
@@ -50,6 +57,25 @@ class SingleClass5(para_i: Int) {
     def addClass(cls: SingleClass4): Unit = {
       cls.var_i = 10
 //      cls = new SingleClass4(10) // 同add方法，不能再赋值，编译不过，提示：reassignment to val
+    }
+
+    // 使用private修饰符，就是声明函数为private，不加private就是public
+    /* 反编译后的代码如下，很清楚了，不再解释
+      private void privateMethod(int i)
+      {
+        Predef..MODULE$.println("private method");
+      }
+
+      public void noPirvateMethod(int i)
+      {
+        Predef..MODULE$.println("no private method");
+      }
+     */
+    private def privateMethod(i: Int): Unit = {
+        println("private method")
+    }
+    def noPirvateMethod(i: Int): Unit = {
+        println("no private method")
     }
 }
 

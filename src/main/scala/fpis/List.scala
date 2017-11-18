@@ -34,8 +34,9 @@ object List {
   }
 
   def setHead[A](head: A): List[A] = {
-    case Nil => Nil
+//    case Nil => Nil
     case Cons(x, xs) => Cons(head, xs)
+    case _ => Nil
   }
 
   def drop[A](l: List[A], n: Int): List[A] = {
