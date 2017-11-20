@@ -1,6 +1,6 @@
 package fpis
 
-import fpis.List.tail
+//import fpis.List.tail
 
 
 sealed trait List[+A]
@@ -27,23 +27,23 @@ object List {
     case Cons(x, xs) => x * product(xs)
   }
 
-  def tail[A](xs: List[A]): List[A] = {
-    case Nil => Nil
-    case Cons(_, Nil) => Nil
-    case Cons(head, tail) => tail
-  }
-
-  def setHead[A](head: A): List[A] = {
+//  def tail[A](xs: List[A]): List[A] = {
 //    case Nil => Nil
-    case Cons(x, xs) => Cons(head, xs)
-    case _ => Nil
-  }
+//    case Cons(_, Nil) => Nil
+//    case Cons(head, tail) => tail
+//  }
+//
+//  def setHead[A](head: A): List[A] = {
+////    case Nil => Nil
+//    case Cons(x, xs) => Cons(head, xs)
+//    case _ => Nil
+//  }
 
-  def drop[A](l: List[A], n: Int): List[A] = {
-    if (n == 0) l
-    else {
-      case Nil => Nil
-      case Cons(head, tail) => drop(tail, n-1)
-    }
-  }
+//  def drop[A](l: List[A], n: Int): List[A] = {
+//    if (n == 0) l
+//    else {
+//      case Nil => Nil
+//      case Cons(head, tail) => drop(tail, n-1)
+//    }
+//  }
 }
