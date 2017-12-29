@@ -7,7 +7,36 @@ package de
 //}
 
 class SingleClass1(para_i: Int) {
-    var var_i: Int = 1 // 不用声明private，默认就是private。scala没有public修饰符
+    /*
+      public int var_i()
+      {
+        return this.var_i;
+      }
+
+      public void var_i_$eq(int x$1)
+      {
+        this.var_i = x$1;
+      }
+
+      private int var_i = 1;
+     */
+    var var_i: Int = 1 // 不用声明private，默认就是private。scala没有public修饰符。不过使用private，对应的方法也是private，见下面的反编译代码。
+    /*
+      private int var_i()
+      {
+        return this.var_i;
+      }
+
+      private void var_i_$eq(int x$1)
+      {
+        this.var_i = x$1;
+      }
+
+      private int var_i = 1;
+     */
+//    private var var_i: Int = 1
+
+
     val val_i: Int = 2
 }
 
